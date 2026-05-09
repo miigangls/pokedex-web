@@ -29,8 +29,8 @@ async function fetchLegendaryPage(offset: number): Promise<LegendaryPage> {
   )
   const names = details
     .filter((d): d is { name: string; is_legendary: boolean } => Boolean(d))
-    .filter((d) => (d as any).is_legendary === true)
-    .map((d: any) => d.name)
+    .filter((d) => d.is_legendary === true)
+    .map((d) => d.name)
 
   return { nextOffset: nextOffset ? Number(nextOffset) : null, names }
 }

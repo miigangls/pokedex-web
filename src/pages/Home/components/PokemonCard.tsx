@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { usePokemonQuery, usePrefetchPokemon } from '../../../hooks/queries/usePokemonQuery'
 import { Card, CardContent } from '../../../components/ui/Card'
-import { Badge } from '../../../components/ui/Badge'
 import { useLocalStorage } from '../../../hooks/useLocalStorage'
 import { capitalize } from '../../../utils/formatters'
 import { getTypeClasses } from '../../../utils/typeColors'

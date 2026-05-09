@@ -31,6 +31,7 @@ type PokeApiPokemon = {
   height: number
   weight: number
   types: { slot: number; type: { name: string } }[]
+  abilities?: { ability: { name: string } }[]
   stats: { base_stat: number; stat: { name: string } }[]
   sprites: {
     front_default: string | null
@@ -46,7 +47,7 @@ export function adaptPokemon(data: PokeApiPokemon): Pokemon {
     height: data.height,
     weight: data.weight,
     types: data.types.map((t) => t.type.name),
-    abilities: (data as any).abilities?.map((a: any) => a.ability.name) ?? [],
+    abilities: data.abilities?.map((a) => a.ability.name) ?? [],
     stats: data.stats.map((s) => ({ name: s.stat.name, value: s.base_stat })),
     sprites: {
       default: data.sprites.front_default ?? null,
